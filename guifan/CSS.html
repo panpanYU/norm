@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>布局规范——CSS规范</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+</head>
+
+<body>
+<div class="wraper">
+	<!--top-->
+	<div class="top">
+		<h1><img src="../images/i_logo.gif" alt="百万年薪"></h1>
+		<ul>
+			<li><a href="../index.html">注意事项</a></li>
+		    <li><a href="wenjian.html">文件架构</a></li>
+			<li><a href="chengxu.html">程序规范</a></li>
+			<li><a href="HTMl.html">HTML规范</a></li>
+			<li><a href="CSS.html" class="current">CSS规范</a></li>
+			<li><a href="qita.html">其他规范</a></li>
+		</ul>
+	</div>
+	<!--cont-->
+	<div class="main">
+	<b id="a1">一、语法书写正确</b><br />
+注意：<span class="lan">[1]</span>z-index的属性值没有单位：例如：z-index:100;<br />
+<span class="lan">[2]</span>其他表述长宽高等的属性值都有单位：例如：margin:10px; height:24px; width:200px;等；<br />
+<span class="lan">[3]</span>其中只有属性值为0时可以不写单位<br />
+
+<b id="a2">二、命名规则</b><br />
+<span class="lan">[1]</span>用字母、_号工、-号、数字组成，必须以字母开头，不能为纯数字。<br />
+<span class="lan">[2]</span>使用有意义的命名：<br />
+<span class="lan">规则：</span>
+（1）所有ID或者class字母和数字之间用“_”连接，命名不要用缩写<br />
+（2）导航：板块缩写名称_nav（例：简历板块：.jl_nav{}；社区板块：.sq_nav{}）<br />
+（3）其他位置：板块缩写名称_作用（例：找工作头部搜索部分：.zw_search{}）<br />
+<table cellpadding="0" cellspacing="0" width="600px">
+	<tr>
+		<td>页头：header</td>
+		<td>登录条：loginbar</td>
+		<td>标志：logo</td>
+		<td>侧栏：sidebar</td>
+	</tr>
+	<tr>
+		<td> 广告：banner</td>
+		<td>子导航：subnav</td>
+		<td>菜单：menu</td>
+		<td>子菜单：submenu </td>
+	</tr>
+	<tr>
+		<td>搜索：search </td>
+		<td>滚动：scroll</td>
+		<td>页面主体：main</td>
+		<td>内容：content</td>
+	</tr>
+	<tr>
+		<td> 标签页：tab</td>
+		<td>子导航：subnav</td>
+		<td>提示信息：msg</td>
+		<td>小技巧：tips </td>
+	</tr>
+	<tr>
+		<td>栏目标题：title</td>
+		<td>加入：joinus</td>
+		<td>指南：guild</td>
+		<td>服务：service</td>
+	</tr>
+	<tr>
+		<td>热点：hot </td>
+		<td>新闻：news</td>
+		<td>下载：download</td>
+		<td>注册：regsiter</td>
+	</tr>
+	<tr>
+		<td>状态：status </td>
+		<td>滚动：scroll</td>
+		<td>按钮：btn</td>
+		<td>投票：vote </td>
+	</tr>
+	<tr>
+		<td>合作伙伴：partner</td>
+		<td>友情链接：friendLink</td>
+		<td>页脚：footer</td>
+		<td>版权：copyright  </td>
+	</tr>
+</table>
+[1] ID是用来标识具体模块，命名必须具体且唯一，由前缀和名字组成。不要滥用ID。如： #db-video-list。<br />
+[2] Class是用来标识某一类型的元素，命名简洁表意清楚。如：.list。<br />
+[3]推荐使用的class名：<br />
+表示状态 	.on, .active, .selected, .hili<br />
+表示位置 	.first, .last, .main, .side<br />
+表示结构 	.hd, .bd, .ft, .col, .section<br />
+通用元素 	.tb, .frm, .nav, .list, .item, .tag, .pic, .info<br />
+以上只是列出一些常用的简单的英文命名，常用类的命名要以常见英文单词为准，做到通俗易懂，并在适当的地方加以注释； <br />
+<br />
+
+<b id="a3">三、css代码优化（包括<1>语法优化<2>模块化，提高重用率）</b><br />
+<h2>1、css代码语法优化</h2>
+1，	Css命名不可以用html标签来命名，命名最好用约定俗成的缩写来命名，做到简单易懂<br />
+2，用优化的方式写css代码<br />
+例如：.zuixin{ width:350px; height:500px; border:1px solid #ccc;}<br />
+.retie{ width:350px; height:500px; border:1px solid #ccc;}<br />
+可优化为.zuixin,.retie{width:350px; height:500px; border:1px solid #ccc;}<br />
+3，符合单条CSS规则的书写格式要求<br />
+[1] 属性需要写在一行。需要在“{“和”}”前后加空格。
+.selector { property:value;property:value; }<br />
+[3] 兼容多个浏览器时，将标准属性写在后面，如：
+-webkit-border-radius:4px;-moz-border-radius:4px;border-radius: 4px;
+<br />
+4，将作用于不同模块的CSS规则集中放在一起，同时用注释说明<br />
+注释的格式：/* mod: doulist */<br />
+通用规则同样分类放在一起。通用规则在具体模块规则的前面。如：/* button */<br />
+5， 尽量避免使用CSS Hack<br />
+推荐使用下面的：<br />
+区别属性：<br />
+IE6 	_property:value<br />
+IE6/7 	*property:value<br />
+IE6/7/8/9 	property:value9<br />
+非IE6 	property//:value<br />
+6， 使用after或overflow的方式清浮动<br />
+7， 避免使用低效的选择器<br />
+如：<br />
+&nbsp;&nbsp;&nbsp;&nbsp;body > * {…}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ul > li > a {…}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;#footer > h3 {…}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ul#top_blue_nav {…}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;#searbar span.submit a { … }<br />
+9，尽量避免使用filter<br />
+10，不要直接修改标签的样式
+如： div { … }<br />
+11，不要在标签上直接写样式
+如：&lt;div style=”margin-bottom:30px;”&gt;<br />
+12， 不要在CSS中使用 expression<br />
+13， 不要在CSS中使用 @import<br />
+14， 不要在CSS中使用 !important<br />
+15， 绝对不要在CSS中使用 “*” 选择符<br />
+
+<h2>利用CSS将代码模块化，提高代码重用率</h2>
+<b>1、将各模块间出现类似的部分，提出来做为公共的定义，减少冗余：</b><br />
+base.css是全站基本样式。它需要放在所有CSS引用的最前面。它包括：网站所有头部、底部，标签reset、常用规则(链接、字体、边框、隐藏、清浮动等)、布局、各种模块基本样式（弹出层 的样式）等  这些公用属性写好后就不要再随意更改了，以免对其他地方产生影响，改动后，要经过全面测试。<br />
+<b>2、将可以被重复调用的，提出来做为公共的定义，命名规则【以css属性名的首字母+属性值命名】</b><br />
+代码举例：<br />
+①文字样式<br />
+.f12{font-size:12px}<br />
+.f14{font-size:14px}<br />
+.fwb{font-weight:bold}<br />
+.fwn{font-weight:normal}<br />
+.tdu{text-decoration:underline}<br />
+.tdn{text-decoration:none}<br />
+②文字定位<br />
+.tl{ text-align:left}<br />
+.tr{ text-align:right}<br />
+.fl{ float:left; display:inline;}<br />
+.fr{ float:right; display:inline;}<br />
+③宽度、高度<br />
+.w100{ width:100px;}<br />
+.h100{ height:100px;}<br />
+④边距<br />
+.m10{ margin:10px;}<br />
+.mt20{margin-top:20px; }<br />
+<b>3、利用css样式的优先级、继承性，用相近的css代码控制相近的样式，以减少用户控件的使用</b><br />
+例如：友情链接在A页面中是宽600px、背景颜色是蓝色；在B页面中是宽700px、背景颜色是红色，现在只用一个控件来实现<br />
+样式：<br />
+.box{ border:1px solid #ccc; marging:10px 0;}<br />
+. blue .box{ background:blue; width:600px;}<br />
+.red .box{ background:red; width:700px;}<br />
+用户控件：（可命名为youqing.ascx）<br />
+&lt;div class="box"&gt;友情链接内容&lt;/div&gt;<br />
+A页面html代码：<br />
+&lt;div class="blue"&gt;调用用户控件&lt;/div&gt;<br />
+B页面html代码：<br />
+&lt;div class="red"&gt;调用用户控件&lt;/div&gt;<br />
+<b>4、不能复制别的网站上的前台代码和css样式，会产生过多的垃圾代码</b><br />
+	</div>
+	
+	<!--right-->
+	<div class="r_nav">
+		<ul>
+			<li><a href="#a1">语法书写正确</a></li>
+			<li><a href="#a2">命名规则</a></li>
+			<li><a href="#a3">css优化</a></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>项目研发小组规范</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+</head>
+
+<body>
+<div class="wraper">
+	<!--top-->
+	<div class="top">
+		<h1><img src="../images/i_logo.gif" alt="百万年薪"></h1>
+		<ul>
+			<li><a href="../index.html">注意事项</a></li>
+		    <li><a href="wenjian.html" class="current1">文件架构</a></li>
+			<li><a href="chengxu.html">程序规范</a></li>
+			<li><a href="HTMl.html">HTML规范</a></li>
+			<li><a href="CSS.html">CSS规范</a></li>
+			<li><a href="qita.html">其他规范</a></li>
+		</ul>
+	</div>
+	<!--cont-->
+	<div class="main">
+	<b class="red">注释：网站上所有的方法都要标明注释<br />
+例如：//这个功能是控制时间显示的   创建人Team   页面 shequ_list.aspx</b>
+	<h2 id="a1">1、网站各板块：每个板块创建一个文件夹</h2>
+　命名规则：<br />
+　板块首页——index.aspx<br />
+　板块列表——板块名_list.aspx<br />
+　板块详细——板块名_xx.aspx<br />
+　板块中的其他页面用汉语拼音表示——板块名_其他.aspx<br />
+
+
+例如社区板块：<br />
+　1）新建一个文件夹shequ<br />
+　2）在shequ文件夹中新建板块中的所有页面<br />
+　社区首页：index.aspx<br />
+　社区列表：shequ_list.aspx<br />
+　社区详细：shequ_xx.aspx<br />
+　社区发帖：shequ_faite.aspx<br />
+　社区提示：shequ_tishi.aspx<br />
+注：<br />
+　（1）只将网站的大首页放在根目录下<br />
+　（2）网站的说明性页面（即底部的那些链接）放在一个文件夹中（shuoming）<br />
+　（3）网站的登录注册放在一个文件夹中（login）<br />
+　（4）将推广需要的专题版块创建一个文件夹统一放置（zhuanti）<br />
+　（5）前台页面各栏目间用简单明了的注释标明<br />
+
+
+<h2 id="a2">2、网站样式表的创建：统一放在样式表的文件夹中style</h2>
+　1）网站公用的样式统一写在一个样式表中（base.css）；其中包括清除浏览器默认值的代码、公用导航底部代码、公用弹出层代码、清除浮动代码、其他公用的样式（颜色、边框等）、还有程序需要经常用到的隐藏、颜色等<br />
+　<span class="red">注：base.css文件中的内容那个不可以随便改动，如有改动需将网站进行整体测试</span><br />
+　2）每个版块创建一个样式文件<br />
+      例如社区版块：shequ.css<br />
+　3）推广需要的专题版块独自创建一个样式表文件（zhuanti.css）各专题简单明了的标明注释<br />
+　4）把样式表置于顶部<br />
+　
+<h2 id="a3">3、网站调用脚本的创建：统一放在脚本文件中javascript</h2>
+1）将网站经常调用的脚本文件放置在js的根目录下<br />
+　　如：public.js（网站经常使用的一些效果）、jquery1.3.2.js（jquery引用文件）<br />
+2）每个版块创建一个文件夹<br />
+例如社区版块：新创建一个shequ文件夹，然后将社区中所有用到的脚本文件放在这个文件夹中（shequ/xxx.js）<span>尽量减少js的数量</span><br />
+　　　布局用到的脚本都写在一个文件中：板块名.js（例如社区板块：shqu.js）<b>【最多创建两个脚本】</b><br />
+　　　程序用到的脚本也尽量都写在一个js文件中<b>【最多创建两个脚本】</b>（命名规则：页面名称.js；例如：社区详细页的页面名称为shequ_xx.aspx ，则该页面用到的脚本可以命名为：shequ_xx.js；）<br />
+　<span class="red">注：给每个js添加注释同时写上开发者的名字和哪个页面引用了，格式：功能+开发者+引用页面</span><br />
+3）推广需要的专题版块独自创建一个脚本文件夹（zhuanti）<br />
+4）不用的js文件要及时删除掉（实现页面效果时可能会试用好几个js，最后确定用哪个js后把其他不用的删掉）<br />
+5）剔除重复的脚本<br />
+6）将js文件在页面底部调用<br />
+7）如果用到的一个js效果在别的板块中也有用到，不可以直接引用其他板块中的js，需要将其中相同的部分复制出来放到页面相对应js文件中使用。<br />
+8）页面中不得出现脚本代码,如果有需要将降本代码封装到统一的文档中调用,注释的代码注意及时的删除掉<br />
+
+<h2 id="a4">4、网站调用图片的创建：统一放在图片文件夹中images</h2>
+1）每个板块创建一个文件夹（即使两个板块之间有用到相同的图片也不可跨板块调用）例如社区：shequ/.......； <br />
+2）网站上的广告图在images下重新创建一个文件夹upload统一放置<br />
+3）布局制作初期用作头像等的切图重新创建一个文件夹pic（这个文件夹里的图片是不用上传的，网站全部完成后这个文件夹可删除）<br /><br />
+<h2 id="a5">5、网站用户控件的创建：统一放在用户控件文件夹中congfigmaster</h2>
+   1）命名规则：板块名_板块属性.ascx<br />
+      例如社区板块：假如社区板块右侧有一列在这个板块中重复出现则可创建shequ_right.ascx重复调用<br />
+<h2 id="a6">另注：</h2>
+1，相同板块的母版页只用一个（在母版页里边嵌套的子页面的所有css文件的链接都要写在母版页的head标签里，不要在子页面单写）。<br />
+2，简单写出自己的开发文档，标明某个版块都用到了哪些文件，方便查找，避免遗漏。<br /><br />
+	</div>
+	<!--right-->
+	<div class="r_nav">
+		<ul>
+			<li><a href="#a1">页面文件</a></li>
+			<li><a href="#a2">css 文件</a></li>
+			<li><a href="#a3">js文件</a></li>
+			<li><a href="#a4">images文件</a></li>
+			<li><a href="#a5">WEB控件文件</a></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
